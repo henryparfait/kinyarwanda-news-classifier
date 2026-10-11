@@ -1,0 +1,10 @@
+{
+  "model_repo": "henryparfait/kinnews-topic-classifier",
+  "max_len": 512,
+  "base_model": "castorini/afriberta_base",
+  "exp_id": "T3",
+  "test_accuracy": 0.7546,
+  "test_macro_f1": 0.581,
+  "test_size": 3464,
+  "github_url": "https://github.com/henryparfait/kinyarwanda-news-classifier"
+}

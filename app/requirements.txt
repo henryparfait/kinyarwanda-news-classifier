@@ -1,0 +1,6 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+transformers==5.18.0
+torch
+sentencepiece
+protobuf
+streamlit
