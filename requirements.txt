@@ -1,0 +1,13 @@
+# Notebook environment 
+pandas
+numpy
+scikit-learn
+matplotlib
+joblib
+torch
+transformers
+gensim>=4.4.0
+sentencepiece
+protobuf
+huggingface_hub
+streamlit

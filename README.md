@@ -8,10 +8,10 @@ Automatically classifying Kinyarwanda news articles into 14 topics (politics, sp
 
 | Resource | Link |
 |---|---|
-| 🌐 Live demo (Streamlit) | https://kinyarwandanews.streamlit.app/ |
-| 🤗 Fine-tuned model | https://huggingface.co/henryparfait/kinnews-topic-classifier |
-| 🎥 Demo video | [TODO: video link] |
-| 📄 Report (PDF) | [`report/report.pdf`](report/report.pdf) |
+|  Live demo (Streamlit) | https://kinyarwandanews.streamlit.app/ |
+|  Fine-tuned model | https://huggingface.co/henryparfait/kinnews-topic-classifier |
+|  Demo video | https://youtu.be/NIW0wqBP_fQ |
+|  Report (PDF) | [`report/report.pdf`](report/report.pdf) |
 
 > The free hosting puts the app to sleep after a period without visitors. Opening the link wakes it up in about a minute. If it is unavailable, the app can be run locally (see [Running the app locally](#running-the-app-locally)).
 
@@ -80,11 +80,10 @@ Details are in the report and in [`notebooks/05_error_analysis.ipynb`](notebooks
 - **Errors are shared across model families:** all three models fail on the same 15.7% of test articles, which points to the data rather than model capacity. Long articles (>600 words) are harder for every model, including the baseline that reads the full text, so truncation is not the main cause.
 - **Confidence is informative:** predictions above 90% confidence are 86.8% accurate, below 50% only 29.5%, which motivates the app's low-confidence warning.
 - **Spelling variation:** Word2Vec places variants next to each other (*abanyeshuri / abanyeshuli*, *amafaranga / amafranga*, *perezida / prezida*), which shows how much non-standard spelling the data contains.
-- [TODO: manual review of N errors: X label ambiguity, Y likely mislabelled, …]
 
 ## Deployment
 
-The final model (T3) is hosted on the **Hugging Face Hub**, and the web interface is a **Streamlit** app on **Streamlit Community Cloud**, deployed directly from this repository. (I first targeted Hugging Face Spaces, but Gradio Spaces on free hardware now require a paid plan.)
+The final model (T3) is hosted on the **Hugging Face Hub**, and the web interface is a **Streamlit** app on **Streamlit Community Cloud**, deployed directly from this repository. 
 
 The app is split into two files: `predictor.py` loads the model and tokenizer from the Hub (cached after the first load) and runs prediction, and `streamlit_app.py` is the interface. For each request the text is tokenised (truncated to 512 tokens), passed through the model, and the softmax probabilities are shown as the top-5 categories. The app warns when confidence is below 50% and when an article was truncated. It also offers examples of correct predictions, known errors and an out-of-domain (English) input.
 
@@ -141,24 +140,23 @@ streamlit run streamlit_app.py      # then open http://localhost:8501
 
 ## References
 
+- Adelani, D. I., et al. (2023). MasakhaNEWS: News topic classification for African languages. *IJCNLP-AACL 2023*. https://aclanthology.org/2023.ijcnlp-main.10/
+- Alabi, J. O., Adelani, D. I., Mosbach, M., & Klakow, D. (2022). Adapting pre-trained language models to African languages via multilingual adaptive fine-tuning. *COLING 2022*, 4336–4349. https://aclanthology.org/2022.coling-1.382/
+- Conneau, A., et al. (2020). Unsupervised cross-lingual representation learning at scale. *ACL 2020*, 8440–8451. https://doi.org/10.18653/v1/2020.acl-main.747
+- Geirhos, R., et al. (2020). Shortcut learning in deep neural networks. *Nature Machine Intelligence, 2*(11), 665–673. https://doi.org/10.1038/s42256-020-00257-z
+- Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. *Neural Computation, 9*(8), 1735–1780. https://doi.org/10.1162/neco.1997.9.8.1735
+- Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Efficient estimation of word representations in vector space. *arXiv:1301.3781*. https://arxiv.org/abs/1301.3781
 - Niyongabo, R. A., Hong, Q., Kreutzer, J., & Huang, L. (2020). KINNEWS and KIRNEWS: Benchmarking cross-lingual text classification for Kinyarwanda and Kirundi. *COLING 2020*. https://doi.org/10.18653/v1/2020.coling-main.480
-- Adelani, D. I., et al. (2023). MasakhaNEWS: News topic classification for African languages. *IJCNLP-AACL 2023*.
-- Nzeyimana, A., & Niyongabo Rubungo, A. (2022). KinyaBERT: A morphology-aware Kinyarwanda language model. *ACL 2022*.
-- Geirhos, R., et al. (2020). Shortcut learning in deep neural networks. *Nature Machine Intelligence, 2*(11), 665–673.
-- Ogueji, K., Zhu, Y., & Lin, J. (2021). Small data? No problem! Exploring the viability of pretrained multilingual language models for low-resourced languages. *Proceedings of the 1st Workshop on Multilingual Representation Learning*. (AfriBERTa)
-- Alabi, J. O., Adelani, D. I., Mosbach, M., & Klakow, D. (2022). Adapting pre-trained language models to African languages via multilingual adaptive fine-tuning. *COLING 2022*. (AfroXLMR)
-- Conneau, A., et al. (2020). Unsupervised cross-lingual representation learning at scale. *ACL 2020*. (XLM-R)
-- Mikolov, T., Chen, K., Corrado, G., & Dean, J. (2013). Efficient estimation of word representations in vector space. *arXiv:1301.3781*.
-- Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. *Neural Computation, 9*(8).
-- Yang, Z., et al. (2016). Hierarchical attention networks for document classification. *NAACL 2016*.
-- Wolf, T., et al. (2020). Transformers: State-of-the-art natural language processing. *EMNLP 2020: System Demonstrations*.
-- Pedregosa, F., et al. (2011). Scikit-learn: Machine learning in Python. *JMLR, 12*.
-- Řehůřek, R., & Sojka, P. (2010). Software framework for topic modelling with large corpora. *LREC 2010 Workshop*. (gensim)
-- Streamlit (2024). Streamlit documentation. https://docs.streamlit.io
+- Nzeyimana, A., & Niyongabo Rubungo, A. (2022). KinyaBERT: A morphology-aware Kinyarwanda language model. *ACL 2022*, 5347–5363. https://doi.org/10.18653/v1/2022.acl-long.367
+- Ogueji, K., Zhu, Y., & Lin, J. (2021). Small data? No problem! Exploring the viability of pretrained multilingual language models for low-resourced languages. *Proceedings of the 1st Workshop on Multilingual Representation Learning*, 116–126. https://doi.org/10.18653/v1/2021.mrl-1.11 (AfriBERTa)
+- Paszke, A., et al. (2019). PyTorch: An imperative style, high-performance deep learning library. *NeurIPS 2019*. https://arxiv.org/abs/1912.01703
+- Pedregosa, F., et al. (2011). Scikit-learn: Machine learning in Python. *JMLR, 12*, 2825–2830. https://jmlr.org/papers/v12/pedregosa11a.html
+- Řehůřek, R., & Sojka, P. (2010). Software framework for topic modelling with large corpora. *LREC 2010 Workshop on New Challenges for NLP Frameworks*, 46–50. https://is.muni.cz/publication/884893/lrec2010-rehurek-sojka.pdf (gensim)
+- Wolf, T., et al. (2020). Transformers: State-of-the-art natural language processing. *EMNLP 2020: System Demonstrations*, 38–45. https://doi.org/10.18653/v1/2020.emnlp-demos.6
+- Yang, Z., Yang, D., Dyer, C., He, X., Smola, A., & Hovy, E. (2016). Hierarchical attention networks for document classification. *NAACL-HLT 2016*, 1480–1489. https://doi.org/10.18653/v1/N16-1174
 
-## Acknowledgements
+**Datasets, models and tools:** KINNEWS corpus, https://github.com/Andrews2017/KINNEWS-and-KIRNEWS-Corpus · AfriBERTa-base, https://huggingface.co/castorini/afriberta_base · AfroXLMR-base, https://huggingface.co/Davlan/afro-xlmr-base · Streamlit, https://docs.streamlit.io
 
-AI assistance (Claude) was used to help structure code and documentation. I ran, tested and checked all code and results myself, and I am responsible for the work submitted.
 
 ## License
 
