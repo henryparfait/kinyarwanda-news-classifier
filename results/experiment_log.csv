@@ -1,0 +1,11 @@
+exp_id,model,config,val_macro_f1,test_accuracy,test_macro_f1,test_weighted_f1,train_time_min,notes,orig_test_macro_f1
+B0,Majority class,always predicts most frequent class,0.0273,0.0909,0.0119,0.0152,0.0,lower bound,
+B1,Word TF-IDF + LogReg,{'C': 10.0},0.5528,0.6911,0.4133,0.6555,3.71,word 1-2 grams,0.4062
+B2,Char TF-IDF + LogReg,{'C': 10.0},0.6231,0.7099,0.4584,0.6812,7.5,char_wb 2-5 grams,0.4514
+B3,Char TF-IDF + LogReg (balanced),{'C': 1.0},0.7451,0.7428,0.5773,0.7421,5.23,"char features, class_weight=balanced",0.5759
+N1,"BiLSTM (random emb, max pool)","emb=200 random, hidden=128x2, max_len=400",0.5303,0.5756,0.3538,0.5723,2.12,embeddings learned from scratch,0.3485
+N2,"BiLSTM (Word2Vec emb, max pool)","emb=200 word2vec skip-gram, hidden=128x2, max_len=400",0.5436,0.595,0.3828,0.5938,1.37,"word2vec init, fine-tuned",0.3813
+N3,"BiLSTM (Word2Vec emb, attention pool)","emb=200 word2vec, hidden=128x2, attention pooling",0.6308,0.6848,0.5132,0.6871,1.65,additive attention over BiLSTM states,0.5051
+T1,AfriBERTa-base fine-tuned,"castorini/afriberta_base, max_len=256, lr=3e-05, bs=16, weighted CE, best epoch=6",0.6863,0.7483,0.5779,0.7422,7.01,African-centric model pretrained from scratch,0.5746
+T2,AfroXLMR-base fine-tuned,"Davlan/afro-xlmr-base, max_len=256, lr=3e-05, bs=16, weighted CE, best epoch=4",0.6646,0.7731,0.6176,0.7705,14.97,XLM-R adapted to African languages (MAFT),0.6224
+T3,AfriBERTa-base fine-tuned,"castorini/afriberta_base, max_len=512, lr=3e-05, bs=16, weighted CE, best epoch=4",0.6909,0.7546,0.581,0.7509,13.51,longer context (512 tokens),0.5766

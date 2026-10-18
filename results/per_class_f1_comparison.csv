@@ -1,0 +1,15 @@
+,Best baseline,Best BiLSTM,Best Transformer,train_count,test_count
+politic,0.625,0.638,0.656,1591,315
+economy,0.558,0.482,0.602,998,174
+health,0.656,0.492,0.669,976,272
+entertainment,0.834,0.828,0.849,900,774
+sport,0.946,0.919,0.953,878,744
+religion,0.771,0.728,0.765,401,256
+relationship,0.819,0.663,0.837,380,340
+history,0.126,0.119,0.159,196,11
+technology,0.674,0.607,0.648,135,103
+education,0.109,0.24,0.069,104,70
+culture,0.434,0.326,0.404,69,138
+fashion,0.639,0.593,0.594,34,91
+environment,0.378,0.142,0.323,34,100
+tourism,0.513,0.408,0.608,30,76

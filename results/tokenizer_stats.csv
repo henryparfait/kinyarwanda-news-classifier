@@ -1,0 +1,3 @@
+model,vocab_size,fertility (tokens/word),median tokens/article,% truncated at 256,% truncated at 512
+AfriBERTa-base,70006,1.88,525,95%,54%
+AfroXLMR-base,250002,2.49,713,96%,77%

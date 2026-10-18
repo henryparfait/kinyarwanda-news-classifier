@@ -1,0 +1,13 @@
+true,pred,errors,% of true class
+culture,history,39,28.3
+entertainment,religion,38,4.9
+education,relationship,32,45.7
+politic,economy,31,9.8
+environment,economy,30,30.0
+fashion,entertainment,27,29.7
+environment,health,27,27.0
+health,politic,26,9.6
+politic,history,25,7.9
+economy,technology,23,13.2
+politic,health,21,6.7
+entertainment,fashion,19,2.5

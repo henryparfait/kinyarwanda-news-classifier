@@ -1,0 +1,5 @@
+model,condition,accuracy,macro_f1
+Best baseline,original,0.7428,0.5773
+Best baseline,markers removed,0.7474,0.5801
+Best Transformer,original,0.7549,0.5813
+Best Transformer,markers removed,0.7549,0.5812

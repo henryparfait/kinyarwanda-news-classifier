@@ -1,0 +1,15 @@
+,train,val,test_dedup
+politic,1591,176,315
+sport,878,98,744
+economy,998,111,174
+health,976,108,272
+entertainment,900,98,774
+history,196,22,11
+technology,135,15,103
+tourism,30,3,76
+culture,69,8,138
+fashion,34,4,91
+religion,401,44,256
+environment,34,4,100
+education,104,12,70
+relationship,380,42,340
